@@ -17,6 +17,8 @@ const app = createApp({});
 
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
+import Index from './components/user/index.vue';
+app.component('index-component', Index);
 
 /**
  * The following block of code may be used to automatically register your
