@@ -30,7 +30,7 @@
                     <a href="{{route('user.index')}}"> Personas |</a>
                 </div>
                 <div>
-                    <a href="{{route('user.index')}}"> Productos</a>
+                    <a href="{{route('product.index')}}"> Productos</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
