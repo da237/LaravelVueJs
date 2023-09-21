@@ -14,46 +14,42 @@ class UserContoller extends Controller
     }
     public function create()
     {
-        //
+        return view('user.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        // $user->status=$request->status;
+        $user->save();
+
+        return redirect()->route('user.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function edit(User $user)
     {
-        //
+        return view('user.edit',compact('user'));
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function update(Request $request, $user)
     {
-        //
+        $user = User::find($user);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        $user->save();
+
+        return redirect()->route('user.index');
+
+    }
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('user.index');
     }
 }
